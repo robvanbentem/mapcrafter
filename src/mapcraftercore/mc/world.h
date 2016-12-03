@@ -44,6 +44,7 @@ enum class Dimension {
 	NETHER,
 	OVERWORLD,
 	END,
+	MOON
 };
 
 std::ostream& operator<<(std::ostream& out, Dimension dimension);

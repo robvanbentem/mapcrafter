@@ -34,6 +34,8 @@ std::ostream& operator<<(std::ostream& out, Dimension dimension) {
 		out << "overworld";
 	else if (dimension == Dimension::END)
 		out << "end";
+	else if (dimension == Dimension::MOON)
+		out << "moon";
 	return out;
 }
 
@@ -56,7 +58,13 @@ World::World(std::string world_dir, Dimension dimension)
 		region_dir = this->world_dir.parent_path() / world_name / "DIM1" / "region";
 		if (!fs::exists(region_dir))
 			region_dir = this->world_dir / "DIM1" / "region";
-	}
+    } else if (dimension == Dimension::MOON) {
+        // same here
+        world_name += "_moon";
+        region_dir = this->world_dir.parent_path() / world_name / "DIM-28" / "region";
+        if (!fs::exists(region_dir))
+        region_dir = this->world_dir / "DIM-28" / "region";
+    }
 }
 
 World::~World() {

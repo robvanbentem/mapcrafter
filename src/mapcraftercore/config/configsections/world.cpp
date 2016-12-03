@@ -34,8 +34,10 @@ mc::Dimension as<mc::Dimension>(const std::string& from) {
 		return mc::Dimension::OVERWORLD;
 	else if (from == "end")
 		return mc::Dimension::END;
+	else if (from == "moon")
+		return mc::Dimension::MOON;
 	else
-		throw std::invalid_argument("Dimension must be one of 'nether', 'overworld' or 'end'!");
+		throw std::invalid_argument("Dimension must be one of 'nether', 'overworld', 'end' or 'moon'!");
 }
 
 template <>
